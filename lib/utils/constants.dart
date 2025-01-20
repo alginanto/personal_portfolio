@@ -24,7 +24,7 @@ List<StringMap> expList = [
 ];
 
 const String bottomText = '''
-Made with Flutter and coded in Visual Studio Code by yours truly. Deployed with Vercel. Inspiration drawn from https://brittanychiang.com/.
+Made with Flutter and coded in Visual Studio Code by yours truly. Deployed with Vercel.
 ''';
 
 Map<String, dynamic> projects = {

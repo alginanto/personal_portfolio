@@ -43,6 +43,7 @@ dependencies:
   url_launcher: ^6.2.2
   easy_rich_text: ^2.1.0
   google_fonts: ^6.1.0
+  web: ^1.1.0
 
 dev_dependencies:
   flutter_test:
