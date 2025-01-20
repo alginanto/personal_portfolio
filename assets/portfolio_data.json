@@ -1,0 +1,70 @@
+{
+    "personalInfo": {
+      "name": "ALGIN ANTO",
+      "title": "Flutter Developer",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor feugiat ligula, non aliquam purus feugiat at.",
+      "imageUrl": "assets/images/profile.jpg",
+      "stats": [
+        {
+          "value": "2+",
+          "label": "YEAR OF EXPERIENCE"
+        },
+        {
+          "value": "5+",
+          "label": "PROJECTS COMPLETED"
+        },
+        {
+          "value": "15+",
+          "label": "APPS SUPPORTED"
+        }
+      ]
+    },
+    "services": [
+      {
+        "title": "Website Design",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "icon": "Icons.home"
+      },
+      {
+        "title": "App Development",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "icon": "Icons.search"
+      },
+      {
+        "title": "Full Stack Development",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "icon": "Icons.settings"
+      }
+    ],
+    "portfolioItems": [
+      {
+        "title": "Project 1",
+        "imageUrl": "assets/images/project1.jpg",
+        "description": "Project 1 description"
+      }
+    ],
+    "experiences": [
+      {
+        "period": "2022 - Present",
+        "title": "Jr.Software Engineer",
+        "company": "Datafloat"
+      },
+      {
+        "period": "2020 - 2021",
+        "title": "Web Developer (freelancer)",
+        "company": "Riva Energy & Marine Solutions"
+      }
+    ],
+    "education": [
+      {
+        "period": "2016 - 2021",
+        "degree": "Integrated MCA",
+        "institution": "DiST,Angmaly"
+      },
+      {
+        "period": "2020",
+        "degree": "Web development",
+        "institution": "UDEMY" 
+      }
+    ]
+  }

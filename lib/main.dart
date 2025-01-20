@@ -1,29 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:personal_portfolio/home/home_view.dart';
+import 'package:portfolio/pages/home_page.dart';
+import 'package:provider/provider.dart';
+import 'providers/theme_provider.dart';
+import 'theme/app_theme.dart';
 
 void main() {
-  runApp(const Main());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: const PortfolioApp(),
+    ),
+  );
 }
 
-class Main extends StatelessWidget {
-  const Main({super.key});
+class PortfolioApp extends StatelessWidget {
+  const PortfolioApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Portfolio',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-          brightness: Brightness.dark,
-        ),
-        textTheme: GoogleFonts.interTextTheme(
-          Typography.whiteCupertino,
-        ),
-        useMaterial3: true,
-      ),
-      home: const HomeView(),
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, _) {
+        return MaterialApp(
+          title: 'Portfolio',
+          themeMode: themeProvider.themeMode,
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          home: const PortfolioHome(),
+          debugShowCheckedModeBanner: false,
+        );
+      },
     );
   }
 }
