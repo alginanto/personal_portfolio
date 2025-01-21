@@ -10,7 +10,14 @@ class PortfolioPage extends StatelessWidget {
       builder: (context, constraints) {
         final bool isMobile = constraints.maxWidth < 800;
         final double padding = isMobile ? 20.0 : 100.0;
-        final int crossAxisCount = isMobile ? 1 : 3;
+        int crossAxisCount;
+        if (isMobile) {
+          crossAxisCount = 1;
+        } else if (constraints.maxWidth < 1100) {
+          crossAxisCount = 2;
+        } else {
+          crossAxisCount = 3;
+        }
 
         return Container(
           padding: EdgeInsets.all(padding),
@@ -32,7 +39,7 @@ class PortfolioPage extends StatelessWidget {
                   crossAxisCount: crossAxisCount,
                   mainAxisSpacing: 24,
                   crossAxisSpacing: 24,
-                  childAspectRatio: 1.0,
+                  childAspectRatio: isMobile ? 1.5 : 1.2,
                 ),
                 itemCount: portfolioItems.length,
                 itemBuilder: (context, index) {
@@ -40,47 +47,106 @@ class PortfolioPage extends StatelessWidget {
                   return Container(
                     decoration: BoxDecoration(
                       color: Colors.grey[800],
-                      borderRadius: BorderRadius.circular(8),
-                      image: DecorationImage(
-                        image: AssetImage(item.imageUrl),
-                        fit: BoxFit.cover,
-                        colorFilter: ColorFilter.mode(
-                          Colors.black.withOpacity(0.6),
-                          BlendMode.darken,
-                        ),
-                      ),
+                      borderRadius: BorderRadius.circular(16),
                     ),
-                    child: Container(
-                      padding: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.transparent,
-                            Colors.black.withOpacity(0.7),
-                          ],
-                        ),
-                      ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            item.title,
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                          // Top area can be used for branding or icons
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.grey[800],
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(16),
+                                child: Image.network(
+                                  item.imageUrl,
+                                  fit: BoxFit.cover,
+                                  errorBuilder: (context, error, stackTrace) {
+                                    return const Center(
+                                      child: Text(
+                                        'Image not available',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    );
+                                  },
+                                  loadingBuilder:
+                                      (context, child, loadingProgress) {
+                                    if (loadingProgress == null) return child;
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  },
+                                ),
+                              ),
                             ),
                           ),
-                          const SizedBox(height: 8),
-                          Text(
-                            item.description,
-                            style: const TextStyle(
-                              color: Colors.white70,
-                            ),
+                          const SizedBox(),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                item.title,
+                                style: const TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      // Handle Demo click
+                                    },
+                                    child: const Row(
+                                      children: [
+                                        Text(
+                                          "Demo",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            decoration:
+                                                TextDecoration.underline,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        Icon(Icons.arrow_forward,
+                                            color: Colors.white, size: 16),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(width: 16),
+                                  GestureDetector(
+                                    onTap: () {
+                                      // Handle GitHub Code click
+                                    },
+                                    child: const Row(
+                                      children: [
+                                        Text(
+                                          "GitHub Code",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            decoration:
+                                                TextDecoration.underline,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        Icon(Icons.arrow_forward,
+                                            color: Colors.white, size: 16),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ],
                       ),

@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 class ServiceCard extends StatefulWidget {
   final String title;
   final String description;
-  final IconData icon;
   final String backgroundImage;
 
   const ServiceCard({
     super.key,
     required this.title,
     required this.description,
-    required this.icon,
     required this.backgroundImage,
   });
 
@@ -78,8 +76,6 @@ class _ServiceCardState extends State<ServiceCard> {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(widget.icon, color: Colors.white, size: 40),
-                    const SizedBox(height: 8),
                     Text(
                       widget.title,
                       style: const TextStyle(
