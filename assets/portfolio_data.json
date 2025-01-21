@@ -21,15 +21,16 @@
     },
     "services": [
       {
-        "title": "Website Design",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "icon": "Icons.home"
-      },
-      {
         "title": "App Development",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "icon": "Icons.search"
       },
+      {
+        "title": "Website Development",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "icon": "Icons.home"
+      },
+     
       {
         "title": "Full Stack Development",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
