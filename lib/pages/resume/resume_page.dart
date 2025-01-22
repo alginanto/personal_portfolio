@@ -94,6 +94,9 @@ class ResumePage extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 24),
       padding: const EdgeInsets.all(24),
+      constraints: const BoxConstraints(
+        minWidth: 400, // Minimum width for all cards
+      ),
       decoration: BoxDecoration(
         color: Colors.grey[800],
         borderRadius: BorderRadius.circular(8),
