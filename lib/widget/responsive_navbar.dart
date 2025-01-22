@@ -1,9 +1,12 @@
 // widgets/responsive_navbar.dart
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'dart:html' as html;
 
 class ResponsiveNavbar extends StatelessWidget {
   final List<String> navItems;
@@ -26,27 +29,39 @@ class ResponsiveNavbar extends StatelessWidget {
             if (constraints.maxWidth < 800) {
               return _buildMobileNavbar(context, themeProvider);
             }
-            return _buildDesktopNavbar(themeProvider);
+            return _buildDesktopNavbar(themeProvider, context);
           },
         );
       },
     );
   }
 
-  Widget _buildDesktopNavbar(ThemeProvider themeProvider) {
+  Widget _buildDesktopNavbar(
+      ThemeProvider themeProvider, BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Row(
         children: [
-          const Row(
-            children: [
-              FaIcon(
-                FontAwesomeIcons.github,
-                size: 50,
-                color: Colors.white,
-              ),
-            ],
+          GestureDetector(
+            onTap: _launchGitHub,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                FaIcon(
+                  FontAwesomeIcons.github,
+                  size: 32,
+                  color: themeProvider.isDarkMode ? Colors.white : Colors.black,
+                ),
+                const SizedBox(width: 10),
+                Text('alginanto',
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: themeProvider.isDarkMode
+                            ? Colors.white
+                            : Colors.black)),
+              ],
+            ),
           ),
           const Spacer(),
           ...navItems.map((item) => Padding(
@@ -70,13 +85,19 @@ class ResponsiveNavbar extends StatelessWidget {
             ),
             onPressed: () => themeProvider.toggleTheme(),
           ),
-          ElevatedButton(
-            onPressed: onDownloadCV,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: FractionallySizedBox(
+              child: ElevatedButton(
+                onPressed: onDownloadCV,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).primaryColor,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                ),
+                child: const Text('DOWNLOAD CV'),
+              ),
             ),
-            child: const Text('DOWNLOAD CV'),
           ),
         ],
       ),
@@ -103,5 +124,22 @@ class ResponsiveNavbar extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void _launchGitHub() async {
+    const url = 'https://github.com/alginanto';
+    if (Uri.tryParse(url) != null) {
+      if (kIsWeb) {
+        // For Flutter web, open in a new tab
+        html.window.open(url, '_blank');
+      } else {
+        // For mobile or desktop apps, use url_launcher
+        if (await canLaunchUrl(Uri.parse(url))) {
+          await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+        } else {
+          throw 'Could not launch $url';
+        }
+      }
+    }
   }
 }
