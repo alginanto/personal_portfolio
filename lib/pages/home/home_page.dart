@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/models/portfolio_data.dart';
 import 'package:portfolio/pages/contact/contact_page.dart';
+import 'package:portfolio/pages/drawer/drawer_page.dart';
 import 'package:portfolio/pages/hero/hero_page.dart';
 import 'package:portfolio/pages/portfolio/portfolio_page.dart';
 import 'package:portfolio/pages/resume/resume_page.dart';

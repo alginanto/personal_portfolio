@@ -2,7 +2,7 @@
     "personalInfo": {
       "name": "ALGIN ANTO",
       "title": "Flutter Developer",
-      "description": "I’m a dedicated Flutter developer with 3 years of experience building high-quality, cross-platform mobile applications. I specialize in creating seamless UI/UX designs, robust functionalities, and scalable solutions. My passion lies in turning ideas into efficient apps that deliver value to users.",
+      "description": "I’m passionate about crafting exceptional cross-platform mobile applications that combine functionality with aesthetics. My focus is on designing seamless user experiences, building robust features, and delivering scalable solutions tailored to meet user needs. I enjoy transforming innovative ideas into efficient, high-quality applications that not only perform well but also make a meaningful impact. With a commitment to continuous improvement, I strive to stay at the forefront of technology and bring creativity and precision to every project I undertake.",
       "imageUrl": "assets/images/profile.png",
       "stats": [
         {
@@ -22,18 +22,18 @@
     "services": [
       {
         "title": "App Development",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "description": "I create cross-platform apps that are intuitive, functional, and scalable. My focus is on delivering great user experiences with clean designs and robust features. Turning ideas into impactful apps is what I do best.",
         "icon": "Icons.search"
       },
       {
         "title": "Website Development",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "description": "I design and build responsive, user-friendly websites that prioritize performance and accessibility. My goal is to create web experiences that are visually appealing and function seamlessly across all devices.",
         "icon": "Icons.home"
       },
      
       {
         "title": "Full Stack Development",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "description": "I handle both frontend and backend development to create complete, end-to-end solutions. From intuitive interfaces to robust server-side logic, I ensure every aspect of the application works together flawlessly.",
         "icon": "Icons.settings"
       }
     ],
