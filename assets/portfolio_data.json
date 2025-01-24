@@ -4,6 +4,9 @@
       "title": "Flutter Developer",
       "description": "I’m passionate about crafting exceptional cross-platform mobile applications that combine functionality with aesthetics. My focus is on designing seamless user experiences, building robust features, and delivering scalable solutions tailored to meet user needs. I enjoy transforming innovative ideas into efficient, high-quality applications that not only perform well but also make a meaningful impact. With a commitment to continuous improvement, I strive to stay at the forefront of technology and bring creativity and precision to every project I undertake.",
       "imageUrl": "assets/images/profile.png",
+      "gitUrl":"https://github.com/alginanto",
+      "linkedinUrl":"https://www.linkedin.com/in/algin-anto-enchakka/",
+      "instagramUrl":"https://www.instagram.com/algiii_1",
       "stats": [
         {
           "value": "2+",
@@ -22,17 +25,20 @@
     "services": [
       {
         "title": "App Development",
+        "imageUrl":"https://images.unsplash.com/photo-1599016012665-13b74bb3b528?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "description": "I create cross-platform apps that are intuitive, functional, and scalable. My focus is on delivering great user experiences with clean designs and robust features. Turning ideas into impactful apps is what I do best.",
         "icon": "Icons.search"
       },
       {
         "title": "Website Development",
+        "imageUrl":"https://plus.unsplash.com/premium_photo-1661412868157-7f88ce4d6f10?q=80&w=1821&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "description": "I design and build responsive, user-friendly websites that prioritize performance and accessibility. My goal is to create web experiences that are visually appealing and function seamlessly across all devices.",
         "icon": "Icons.home"
       },
      
       {
         "title": "Full Stack Development",
+        "imageUrl":"https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "description": "I handle both frontend and backend development to create complete, end-to-end solutions. From intuitive interfaces to robust server-side logic, I ensure every aspect of the application works together flawlessly.",
         "icon": "Icons.settings"
       }
@@ -76,6 +82,23 @@
         "period": "2020",
         "degree": "Web development",
         "institution": "UDEMY" 
+      }
+    ],
+    "supportedApps":[
+      {
+        "appUrlaAndroid":"",
+        "appUrlIos":"",
+        "appImage":""
+      },
+      {
+        "appUrlaAndroid":"",
+        "appUrlIos":"",
+        "appImage":""
+      },
+      {
+        "appUrlaAndroid":"",
+        "appUrlIos":"",
+        "appImage":""
       }
     ]
   }

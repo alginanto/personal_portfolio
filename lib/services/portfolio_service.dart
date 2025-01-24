@@ -9,7 +9,8 @@ class PortfolioService {
   Future<PortfolioData> loadPortfolioData() async {
     try {
       // Load from local assets
-      final String jsonString = await rootBundle.loadString('assets/portfolio_data.json');
+      final String jsonString =
+          await rootBundle.loadString('assets/portfolio_data.json');
       final Map<String, dynamic> jsonData = json.decode(jsonString);
       return PortfolioData.fromJson(jsonData);
     } catch (e) {

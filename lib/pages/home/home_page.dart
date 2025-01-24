@@ -1,4 +1,9 @@
+import 'dart:io';
+
+import 'package:file_saver/file_saver.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:portfolio/models/portfolio_data.dart';
 import 'package:portfolio/pages/contact/contact_page.dart';
 import 'package:portfolio/pages/drawer/drawer_page.dart';
@@ -9,6 +14,7 @@ import 'package:portfolio/pages/service/service_page.dart';
 import 'package:portfolio/services/portfolio_service.dart';
 import 'package:portfolio/widget/responsive_navbar.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+import 'dart:html' as html;
 
 class PortfolioHome extends StatefulWidget {
   const PortfolioHome({super.key});
@@ -62,8 +68,13 @@ class _PortfolioHomeState extends State<PortfolioHome> {
     );
   }
 
-  void handleDownloadCV() {
-    // Implement CV download logic
+  void handleDownloadCV() async {
+    const String pdfUrl = 'assets/pdf/Algin_Anto.pdf';
+    final anchor = html.AnchorElement(href: pdfUrl)
+      ..setAttribute("download", "Algin_Anto.pdf");
+    html.document.body?.append(anchor);
+    anchor.click();
+    anchor.remove();
   }
 
   @override
