@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:file_saver/file_saver.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
@@ -69,13 +70,39 @@ class _PortfolioHomeState extends State<PortfolioHome> {
   }
 
   void handleDownloadCV() async {
-    const String pdfUrl = 'assets/pdf/Algin_Anto.pdf';
-    final anchor = html.AnchorElement(href: pdfUrl)
-      ..setAttribute("download", "Algin_Anto.pdf")
-      ..setAttribute('target', '_blank');
-    html.document.body?.append(anchor);
-    anchor.click();
-    anchor.remove();
+    if (kIsWeb) {
+      try {
+        // Get the current URL
+        final baseUrl = html.window.location.href;
+        print('Base URL: $baseUrl'); // For debugging
+
+        // Create the full path to the PDF
+        final pdfUrl = '${Uri.parse(baseUrl).origin}/assets/pdf/Algin_Anto.pdf';
+        print('PDF URL: $pdfUrl'); // For debugging
+
+        // Create a temporary anchor element
+        final anchor = html.AnchorElement()
+          ..href = pdfUrl
+          ..setAttribute('download', 'Algin_Anto.pdf')
+          ..style.display = 'none';
+
+        // Add to DOM, click, and remove
+        html.document.body?.append(anchor);
+
+        // Add error handling for the download
+        final subscription = html.window.onError.listen((event) {
+          print('Error during download: ${event}');
+        });
+
+        anchor.click();
+        anchor.remove();
+
+        // Cleanup error listener
+        subscription.cancel();
+      } catch (e) {
+        print('Exception during download setup: $e');
+      }
+    }
   }
 
   @override
