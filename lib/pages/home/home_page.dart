@@ -77,7 +77,8 @@ class _PortfolioHomeState extends State<PortfolioHome> {
         print('Base URL: $baseUrl'); // For debugging
 
         // Create the full path to the PDF
-        final pdfUrl = '${Uri.parse(baseUrl).origin}/assets/pdf/Algin_Anto.pdf';
+        final pdfUrl =
+            '${Uri.parse(baseUrl).origin}/assets/assets/pdf/Algin_Anto.pdf';
         print('PDF URL: $pdfUrl'); // For debugging
 
         // Create a temporary anchor element
