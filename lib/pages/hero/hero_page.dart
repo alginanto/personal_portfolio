@@ -58,8 +58,7 @@ class HeroPage extends StatelessWidget {
 
   Widget _buildDesktopHeroContent(
       PersonalInfo info, BoxConstraints constraints) {
-    return Wrap(
-      alignment: WrapAlignment.spaceBetween,
+    return Row(
       children: [
         Expanded(
           child: Column(
