@@ -71,7 +71,8 @@ class _PortfolioHomeState extends State<PortfolioHome> {
   void handleDownloadCV() async {
     const String pdfUrl = 'assets/pdf/Algin_Anto.pdf';
     final anchor = html.AnchorElement(href: pdfUrl)
-      ..setAttribute("download", "Algin_Anto.pdf");
+      ..setAttribute("download", "Algin_Anto.pdf")
+      ..setAttribute('target', '_blank');
     html.document.body?.append(anchor);
     anchor.click();
     anchor.remove();
