@@ -52,6 +52,16 @@ class HeroPage extends StatelessWidget {
               .map((stat) => _buildStat(stat.value, stat.label))
               .toList(),
         ),
+        const SizedBox(height: 32),
+        Wrap(
+          spacing: 28,
+          runSpacing: 28,
+          children: [
+            _buildSocialMedia(FontAwesomeIcons.github, info.gitUrl),
+            _buildSocialMedia(FontAwesomeIcons.linkedin, info.linkedinUrl),
+            _buildSocialMedia(FontAwesomeIcons.instagram, info.instagramUrl),
+          ],
+        )
       ],
     );
   }
